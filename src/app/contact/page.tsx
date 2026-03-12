@@ -1,7 +1,23 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { Mail, MessageSquare, Bug, Send } from "lucide-react";
 
 export default function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("Enterprise Deployment");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const destinationEmail = "reyyaasish@lpu.in";
+    const bodyText = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+    const mailtoLink = `mailto:${destinationEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
+    
+    window.location.href = mailtoLink;
+  };
+
   return (
     <div className="flex flex-col gap-12 font-sans text-foreground pb-24 min-h-[80vh] pt-20">
       <section className="px-6 container mx-auto text-center border-b border-card-border pb-10">
@@ -39,18 +55,36 @@ export default function Contact() {
 
         <div className="glass-panel p-8 rounded-xl border border-card-border flex flex-col items-start bg-secondary/30 h-fit">
            <h2 className="text-2xl font-bold text-white mb-6">Send a Message</h2>
-           <form className="w-full flex flex-col gap-4">
+           <form onSubmit={handleSubmit} className="w-full flex flex-col gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-400 mb-2">Name</label>
-                <input type="text" className="w-full bg-[#0a0f1c] border border-gray-700/50 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-primary transition-colors" placeholder="Jane Doe" />
+                <input 
+                  type="text" 
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full bg-[#0a0f1c] border border-gray-700/50 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-primary transition-colors" 
+                  placeholder="Jane Doe" 
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
-                <input type="email" className="w-full bg-[#0a0f1c] border border-gray-700/50 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-primary transition-colors" placeholder="jane@example.com" />
+                <input 
+                  type="email" 
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full bg-[#0a0f1c] border border-gray-700/50 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-primary transition-colors" 
+                  placeholder="jane@example.com" 
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-400 mb-2">Subject</label>
-                <select className="w-full bg-[#0a0f1c] border border-gray-700/50 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-primary transition-colors">
+                <select 
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
+                  className="w-full bg-[#0a0f1c] border border-gray-700/50 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-primary transition-colors"
+                >
                   <option>Enterprise Deployment</option>
                   <option>Bug Report</option>
                   <option>Partnership</option>
@@ -59,9 +93,16 @@ export default function Contact() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-400 mb-2">Message</label>
-                <textarea rows={5} className="w-full bg-[#0a0f1c] border border-gray-700/50 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-primary transition-colors" placeholder="How can we help?"></textarea>
+                <textarea 
+                  rows={5} 
+                  required
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="w-full bg-[#0a0f1c] border border-gray-700/50 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-primary transition-colors" 
+                  placeholder="How can we help?"
+                ></textarea>
               </div>
-              <button type="button" className="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-background font-bold py-3 mt-2 rounded-lg transition-all glow text-sm">
+              <button type="submit" className="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-background font-bold py-3 mt-2 rounded-lg transition-all glow text-sm">
                 <Send className="w-5 h-5" /> Send Message
               </button>
            </form>
