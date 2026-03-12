@@ -68,8 +68,20 @@ def start_sensor(path_to_watch, detector_engine):
         print("\n[*] Sensor stopped.")
     observer.join()
 
+import sys
+
 if __name__ == "__main__":
     detector = DetectionEngine()
-    test_dir = "./watch_folder"
-    os.makedirs(test_dir, exist_ok=True)
-    start_sensor(test_dir, detector)
+    
+    # Allow the user to specify a directory to watch, defaulting to the current user's Documents folder
+    # This connects the honeypot to where real ransomware usually aims.
+    if len(sys.argv) > 1:
+        target_dir = sys.argv[1]
+    else:
+        if os.name == 'nt': # Windows
+            target_dir = os.path.join(os.environ['USERPROFILE'], 'Documents')
+        else:
+            target_dir = "./watch_folder"
+            
+    os.makedirs(target_dir, exist_ok=True)
+    start_sensor(target_dir, detector)
