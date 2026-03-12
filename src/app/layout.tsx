@@ -13,7 +13,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tripwire | Early Ransomware Tripwire",
+  title: "ThreatPulse | Early Ransomware Defense",
   description: "Detect ransomware before encryption begins. A lightweight ransomware tripwire that detects pre-encryption behavior and automatically isolates infected machines.",
 };
 
@@ -29,10 +29,10 @@ export default function RootLayout({
       >
         <header className="fixed w-full z-50 glass-panel border-b-0 border-card-border">
           <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-            <div className="flex items-center gap-2">
+            <a href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <div className="w-8 h-8 rounded bg-primary glow flex items-center justify-center text-background font-bold text-xl">T</div>
-              <span className="font-bold text-xl tracking-tight text-white hover:text-primary transition-colors cursor-pointer">Tripwire</span>
-            </div>
+              <span className="font-bold text-xl tracking-tight text-white transition-colors cursor-pointer">ThreatPulse</span>
+            </a>
             
             <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
               <a href="/product" className="hover:text-primary transition-colors">Product</a>
@@ -59,7 +59,7 @@ export default function RootLayout({
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-6 h-6 rounded bg-primary flex items-center justify-center text-background font-bold text-sm">T</div>
-                <span className="font-bold text-lg text-white">Tripwire</span>
+                <span className="font-bold text-lg text-white">ThreatPulse</span>
               </div>
               <p className="text-sm text-gray-400">Stopping ransomware before encryption starts.</p>
             </div>
@@ -89,7 +89,7 @@ export default function RootLayout({
             </div>
           </div>
           <div className="container mx-auto px-6 mt-12 pt-8 border-t border-card-border text-sm text-gray-500 flex justify-between">
-            <p>&copy; 2024 Tripwire. Built by me. All rights reserved.</p>
+            <p>&copy; 2024 ThreatPulse. Built by me. All rights reserved.</p>
             <div className="flex gap-4">
               <a href="#" className="hover:text-primary">Twitter</a>
               <a href="#" className="hover:text-primary">GitHub</a>

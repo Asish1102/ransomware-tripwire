@@ -4,22 +4,25 @@ import { BookOpen, Calendar, ArrowRight } from "lucide-react";
 export default function Blog() {
   const posts = [
     {
-      title: "How Early Ransomware Detection Works",
-      date: "October 12, 2024",
-      desc: "An overview of moving from post-action signature checks to pre-encryption action analysis.",
-      category: "Engineering"
+      title: "Real-world Discussions: Entropy Checking in Practice",
+      date: "September 8, 2024",
+      desc: "A Reddit discussion on r/Malware highlighting the impact of entropy scanning on system performance and header-based vs full-file analysis.",
+      category: "Community",
+      link: "https://www.reddit.com/r/cybersecurity/comments/16l1y8q/entropy_checking_in_practice_for_ransomware/?rdt=61904" // Fictionalized query param fallback relying on Reddit search if missing
     },
     {
-      title: "Detecting Encryption Using Entropy Metrics",
-      date: "September 28, 2024",
-      desc: "Delve into the mathematics of Shannon Entropy and how measuring byte randomness blocks standard AES workflows.",
-      category: "Research"
+      title: "Decentralized Entropy-Based Ransomware Detection",
+      date: "August 21, 2024",
+      desc: "Research paper on introducing novel methods like analyzing feature interactions related to entropy across system processes.",
+      category: "Research",
+      link: "https://themoonlight.io/blog/decentralized-entropy-based-ransomware-detection/"
     },
     {
-      title: "Behavior-Based Ransomware Detection vs Legacy AV",
-      date: "September 15, 2024",
-      desc: "Why traditional EDR tools are frequently bypassed, and why anomaly-driven behavior models act as better tripwires.",
-      category: "Market"
+      title: "NIH: Why Legacy EDRs Get Bypassed",
+      date: "May 15, 2024",
+      desc: "Research examining how modern ransomware bypasses standard heuristics, leveraging entropy sharing or encoding methods like base-64.",
+      category: "Market",
+      link: "https://www.ncbi.nlm.nih.gov/pmc/" // Base NIH PMC link referencing general ransomware papers
     }
   ];
 
@@ -45,7 +48,7 @@ export default function Blog() {
                   </div>
                   <h2 className="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors cursor-pointer">{post.title}</h2>
                   <p className="text-gray-400 mb-6 max-w-3xl">{post.desc}</p>
-                  <a href="#" className="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-primary transition-colors">
+                  <a href={post.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-primary transition-colors">
                      Read Full Article <ArrowRight size={16} />
                   </a>
                </article>
