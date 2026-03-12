@@ -17,23 +17,23 @@ export default function Contact() {
         <div className="flex flex-col gap-6">
            <div className="glass-panel p-8 rounded-xl border border-card-border hover:border-primary/30 transition-colors">
               <Mail className="w-8 h-8 text-primary mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Enterprise Interest</h3>
-              <p className="text-gray-400 text-sm mb-4">Want to deploy Tripwire across 100+ endpoints? Contact sales for bulk licensing, SIEM integration, and support SLAs.</p>
-              <a href="mailto:sales@tripwire.ai" className="text-primary hover:underline font-bold text-sm">sales@tripwire.ai</a>
+              <h3 className="text-xl font-bold text-white mb-2">Direct Contact</h3>
+              <p className="text-gray-400 text-sm mb-4">Want to deploy ThreatPulse, discuss architecture, or explore collaborations? Reach out to me directly via email.</p>
+              <a href="mailto:reyyaasish@lpu.in" className="text-primary hover:underline font-bold text-sm">reyyaasish@lpu.in</a>
            </div>
 
            <div className="glass-panel p-8 rounded-xl border border-card-border hover:border-primary/30 transition-colors">
               <MessageSquare className="w-8 h-8 text-primary mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Partnerships</h3>
-              <p className="text-gray-400 text-sm mb-4">Are you an MSP or a security consultancy? Let's talk about integrating our tripwire into your stack.</p>
-              <a href="mailto:partners@tripwire.ai" className="text-primary hover:underline font-bold text-sm">partners@tripwire.ai</a>
+              <h3 className="text-xl font-bold text-white mb-2">Professional Network</h3>
+              <p className="text-gray-400 text-sm mb-4">Are you a security researcher, engineer, or looking to connect professionally? Find me on LinkedIn.</p>
+              <a href="https://www.linkedin.com/in/asish-varma-reyya-569348253" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-bold text-sm">Connect on LinkedIn</a>
            </div>
 
            <div className="glass-panel p-8 rounded-xl border border-card-border hover:border-red-500/30 transition-colors">
               <Bug className="w-8 h-8 text-red-500 mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Security Researchers</h3>
-              <p className="text-gray-400 text-sm mb-4">Found a bypass? Or want to contribute to the detection model? We welcome responsible disclosure and PRs.</p>
-              <a href="mailto:security@tripwire.ai" className="text-red-400 hover:underline font-bold text-sm">security@tripwire.ai</a>
+              <h3 className="text-xl font-bold text-white mb-2">Security Research</h3>
+              <p className="text-gray-400 text-sm mb-4">Found a bypass? Want to contribute to the detection model? I welcome responsible disclosure and discussions.</p>
+              <a href="mailto:reyyaasish@lpu.in?subject=Security%20Research" className="text-red-400 hover:underline font-bold text-sm">reyyaasish@lpu.in</a>
            </div>
         </div>
 

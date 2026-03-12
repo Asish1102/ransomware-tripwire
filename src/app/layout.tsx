@@ -93,7 +93,7 @@ export default function RootLayout({
             <div className="flex gap-4">
               <a href="#" className="hover:text-primary">Twitter</a>
               <a href="#" className="hover:text-primary">GitHub</a>
-              <a href="#" className="hover:text-primary">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/asish-varma-reyya-569348253" target="_blank" rel="noopener noreferrer" className="hover:text-primary">LinkedIn</a>
             </div>
           </div>
         </footer>
