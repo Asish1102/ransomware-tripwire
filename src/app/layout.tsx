@@ -89,7 +89,7 @@ export default function RootLayout({
             </div>
           </div>
           <div className="container mx-auto px-6 mt-12 pt-8 border-t border-card-border text-sm text-gray-500 flex justify-between">
-            <p>&copy; 2024 ThreatPulse. Built by me. All rights reserved.</p>
+            <p>&copy; 2024 ThreatPulse. Engineered exclusively by Asish Varma Reyya. All rights reserved.</p>
             <div className="flex gap-4">
               <a href="#" className="hover:text-primary">Twitter</a>
               <a href="#" className="hover:text-primary">GitHub</a>

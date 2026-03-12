@@ -9,7 +9,7 @@ export default function Demo() {
           <span className="text-primary">Attack Simulation</span> in Real-Time
         </h1>
         <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-          Watch how Tripwire detects and neutralizes a simulated ransomware attack before encryption takes hold.
+          Watch how ThreatPulse detects and neutralizes a simulated ransomware attack before encryption takes hold.
         </p>
       </section>
 
@@ -25,8 +25,8 @@ export default function Demo() {
                C:\&gt; execute payload.exe<br/>
                [Ransomware] Locating target files...<br/>
                [Ransomware] Targeting C:\Users\Admin\Documents<br/>
-               <span className="text-red-500">[Tripwire] ALERT: Entropy surge detected + I/O spike</span><br/>
-               <span className="text-red-500">[Tripwire] ALERT: Suspicious file renames (.docx -&gt; .encrypted)</span><br/>
+               <span className="text-red-500">[ThreatPulse] ALERT: Entropy surge detected + I/O spike</span><br/>
+               <span className="text-red-500">[ThreatPulse] ALERT: Suspicious file renames (.docx -&gt; .encrypted)</span><br/>
                <span className="text-blue-400">[Containment] Action Triggered: Terminate PID 4592</span><br/>
                <span className="text-blue-400">[Containment] Action Triggered: Disable network adapters</span><br/>
                [System] Process terminated. Files protected: 99.9%
@@ -37,7 +37,7 @@ export default function Demo() {
                 <ShieldAlert /> Threat Neutralized
              </div>
              <p className="text-gray-300">
-               In this demonstration, the attack begins by reading and rewriting files with increased entropy. Within 50 milliseconds of the first malicious rename, the Tripwire detection trigger fires. Containment automatically kills the process and saves the filesystem.
+               In this demonstration, the attack begins by reading and rewriting files with increased entropy. Within 50 milliseconds of the first malicious rename, the ThreatPulse detection trigger fires. Containment automatically kills the process and saves the filesystem.
              </p>
           </div>
         </div>

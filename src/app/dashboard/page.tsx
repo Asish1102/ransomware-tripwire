@@ -11,7 +11,7 @@ export default function Dashboard() {
               <Activity className="text-primary w-5 h-5" /> Enterprise Console
             </h1>
             <div className="flex items-center gap-4 text-sm font-mono text-gray-400">
-               <span>admin@tripwire.ai</span>
+               <span>reyyaasish@lpu.in</span>
                <span className="bg-green-500/20 text-green-400 px-2 py-1 rounded">System Healthy</span>
             </div>
          </div>

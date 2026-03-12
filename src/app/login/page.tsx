@@ -20,7 +20,7 @@ export default function Login() {
               <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
               <input 
                 type="email" 
-                defaultValue="admin@tripwire.ai"
+                defaultValue="reyyaasish@lpu.in"
                 className="w-full bg-[#0a0f1c] border border-gray-700/50 rounded-lg py-3 pl-10 pr-4 text-white focus:outline-none focus:border-primary transition-colors" 
               />
             </div>

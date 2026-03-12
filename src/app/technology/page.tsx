@@ -9,7 +9,7 @@ export default function Technology() {
           <span className="text-primary">Under the Hood:</span> Our Technology
         </h1>
         <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-          Deep dive into the architecture, detection models, and research frameworks mapping out the Tripwire platform. Reserved for technical users and security researchers.
+          Deep dive into the architecture, detection models, and research frameworks mapping out the ThreatPulse platform. Reserved for technical users and security researchers.
         </p>
       </section>
 

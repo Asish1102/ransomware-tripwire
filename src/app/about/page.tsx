@@ -6,10 +6,10 @@ export default function About() {
     <div className="flex flex-col gap-12 font-sans text-foreground pb-24 min-h-[80vh]">
       <section className="pt-20 pb-10 px-6 container mx-auto text-center border-b border-card-border relative">
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-white">
-          About <span className="text-primary">Tripwire</span>
+          About <span className="text-primary">ThreatPulse</span>
         </h1>
         <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-          We build lightweight defensive technologies to stop ransomware before damage occurs.
+          I built this lightweight defensive technology to stop ransomware dead in its tracks.
         </p>
       </section>
 
@@ -25,9 +25,9 @@ export default function About() {
            
            <div className="glass-panel p-8 rounded-xl border border-card-border text-center flex-1">
              <Users className="w-12 h-12 text-primary mx-auto mb-4" />
-             <h3 className="text-xl font-bold text-white mb-2">Founding Team</h3>
+             <h3 className="text-xl font-bold text-white mb-2">The Developer</h3>
              <p className="text-gray-400 text-sm">
-               Built entirely by me. I was tired of watching entire networks get encrypted before EDR solutions could react.
+               Engineered entirely by <strong>Asish Varma Reyya</strong>. I was tired of watching entire networks get encrypted before massive EDR solutions could react. ThreatPulse is my answer to behavioral anomalies.
              </p>
            </div>
         </div>

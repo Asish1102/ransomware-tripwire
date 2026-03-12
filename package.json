@@ -1,6 +1,7 @@
 {
   "name": "ransomware-tripwire",
   "version": "0.1.0",
+  "author": "Asish Varma Reyya <reyyaasish@lpu.in>",
   "private": true,
   "scripts": {
     "dev": "next dev",

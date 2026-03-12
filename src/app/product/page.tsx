@@ -48,7 +48,7 @@ export default function Product() {
               <h2 className="text-3xl font-bold text-white">2. Detection Engine</h2>
             </div>
             <p className="text-lg text-gray-400 mb-6">
-              Signatures take hours or days to update. The Tripwire engine uses behavior, entropy, and statistical pattern matching.
+              Signatures take hours or days to update. The ThreatPulse engine uses behavior, entropy, and statistical pattern matching.
             </p>
             <div className="glass-panel p-6 rounded-lg text-gray-300 border-l-4 border-l-primary mb-6">
               <p className="italic">"Instead of relying on signatures, the engine analyzes file system burst patterns and entropy changes in real time."</p>

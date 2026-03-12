@@ -25,7 +25,7 @@ export default function Contact() {
           <span className="text-primary">Contact</span> Us
         </h1>
         <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-          Feedback, bug reports, partnership inquiries, or enterprise deployment questions. We are here.
+          Feedback, bug reports, partnership inquiries, or enterprise deployment questions. I am here to help.
         </p>
       </section>
 
@@ -99,7 +99,7 @@ export default function Contact() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   className="w-full bg-[#0a0f1c] border border-gray-700/50 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-primary transition-colors" 
-                  placeholder="How can we help?"
+                  placeholder="How can I help?"
                 ></textarea>
               </div>
               <button type="submit" className="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-background font-bold py-3 mt-2 rounded-lg transition-all glow text-sm">
