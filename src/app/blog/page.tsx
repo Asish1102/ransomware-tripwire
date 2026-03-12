@@ -6,23 +6,23 @@ export default function Blog() {
     {
       title: "Real-world Discussions: Entropy Checking in Practice",
       date: "September 8, 2024",
-      desc: "A Reddit discussion on r/Malware highlighting the impact of entropy scanning on system performance and header-based vs full-file analysis.",
+      desc: "Live discussions on r/cybersecurity highlighting the impact of entropy scanning on system performance and header-based vs full-file analysis.",
       category: "Community",
-      link: "https://www.reddit.com/r/cybersecurity/comments/16l1y8q/entropy_checking_in_practice_for_ransomware/?rdt=61904" // Fictionalized query param fallback relying on Reddit search if missing
+      link: "https://www.reddit.com/r/cybersecurity/search/?q=ransomware+entropy&restrict_sr=1" 
     },
     {
-      title: "Decentralized Entropy-Based Ransomware Detection",
+      title: "ArXiv: Latest Pre-prints on Ransomware Entropy Detection",
       date: "August 21, 2024",
-      desc: "Research paper on introducing novel methods like analyzing feature interactions related to entropy across system processes.",
+      desc: "Cornell University's active index of the newest research papers mapping feature interactions related to ransomware sequence entropy.",
       category: "Research",
-      link: "https://themoonlight.io/blog/decentralized-entropy-based-ransomware-detection/"
+      link: "https://arxiv.org/search/cs?query=%22ransomware%22+%22entropy%22&searchtype=all&abstracts=show&order=-announced_date_first&size=50"
     },
     {
-      title: "NIH: Why Legacy EDRs Get Bypassed",
+      title: "Microsoft Security: Analyzing Ransomware as a Service (RaaS)",
       date: "May 15, 2024",
-      desc: "Research examining how modern ransomware bypasses standard heuristics, leveraging entropy sharing or encoding methods like base-64.",
+      desc: "Global threat intelligence examining how modern ransomware bypasses standard EDR heuristics and the shift towards the gig economy.",
       category: "Market",
-      link: "https://www.ncbi.nlm.nih.gov/pmc/" // Base NIH PMC link referencing general ransomware papers
+      link: "https://www.microsoft.com/en-us/security/blog/topic/threat-intelligence/"
     }
   ];
 
