@@ -1,10 +1,42 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
-import fs from "fs";
-import path from "path";
+
+// Simple in-memory rate limiting (Limits to 3 requests per IP per minute)
+const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
+const RATE_LIMIT = 3; 
+const WINDOW_MS = 60 * 1000; 
+
+function isRateLimited(ip: string) {
+  const now = Date.now();
+  const windowStart = now - WINDOW_MS;
+
+  if (rateLimitMap.size > 1000) rateLimitMap.clear();
+
+  const record = rateLimitMap.get(ip) || { count: 0, lastReset: now };
+
+  if (record.lastReset < windowStart) {
+    record.count = 0;
+    record.lastReset = now;
+  }
+
+  record.count++;
+  rateLimitMap.set(ip, record);
+
+  return record.count > RATE_LIMIT;
+}
 
 export async function POST(req: NextRequest) {
   try {
+    // Extract IP address from request headers (works on Vercel)
+    const ip = req.headers.get("x-forwarded-for") || req.headers.get("x-real-ip") || "unknown-ip";
+    
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { error: "Too many requests. Please try again in a minute." },
+        { status: 429 } // 429 Too Many Requests
+      );
+    }
+
     const { email, company } = await req.json();
 
     if (!email) {
