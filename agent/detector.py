@@ -10,7 +10,6 @@ class DetectionEngine:
         self.write_threshold = write_threshold
         self.events = collections.deque()
         self.backend_url = "http://localhost:8000/alerts"
-        # Prevent spamming alerts
         self.last_trigger_time = 0 
         
     def log_event(self, event):
@@ -19,7 +18,6 @@ class DetectionEngine:
     def evaluate_window(self):
         current_time = time.time()
         
-        # Remove old events outside the time window
         while self.events and current_time - self.events[0]["timestamp"] > self.window_size:
             self.events.popleft()
             
@@ -30,19 +28,17 @@ class DetectionEngine:
         for e in self.events:
             if e["type"] in ["created", "modified"]:
                 write_count += 1
-                if e["entropy"] > 7.0: # High entropy implies encryption
+                if e["entropy"] > 7.0:
                     high_entropy_writes += 1
             elif e["type"] == "rename":
                 rename_count += 1
                 if e["filepath"].endswith(".locked") or e["filepath"].endswith(".enc"):
-                    rename_count += 5 # Weigh suspicious extensions heavier
+                    rename_count += 5
                     
-        # Evaluate MVP Early Detection Rules
         if (write_count > self.write_threshold or 
             rename_count > self.rename_threshold or 
             high_entropy_writes > (self.write_threshold / 2)):
             
-            # Rate limit alerts to once every 10 seconds
             if current_time - self.last_trigger_time > 10:
                 self.trigger_alert(write_count, rename_count, high_entropy_writes)
                 self.last_trigger_time = current_time
@@ -55,10 +51,8 @@ class DetectionEngine:
         print(f"  - High Entropy Writes: {entropy_writes}")
         print("[!] ===================================== [!]\n")
         
-        # Clear current queue to reset counts
         self.events.clear()
         
-        # Send alert to C2 / Backend
         try:
             requests.post(self.backend_url, json={
                 "alert_type": "behavioral_threshold_exceeded",
@@ -74,5 +68,4 @@ class DetectionEngine:
         except Exception as e:
             print("[x] Failed to send alert to backend (Is it running?):", str(e))
             
-        # Trigger actual system containment
         trigger_containment()
