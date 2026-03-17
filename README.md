@@ -2,48 +2,35 @@
 
 ThreatPulse is a lightweight ransomware alarm and auto-lockdown system. It detects the behavioral patterns of ransomware (rapid file modifications, high entropy data writes, and extension changes) and instantly triggers host containment before significant encryption damage can occur.
 
-## How to Download and Run on Windows
+## How to Download and Run
 
-1. **Download the Tool:**
-   - Go to the website's download page (`http://localhost:3000/download`).
-   - Enter your email and download the `ThreatPulse.zip` package.
-   - Extract the `.zip` file into a folder on your Windows machine.
+1. **Download the Target System Component:**
+   - Go to the website's download page.
+   - Enter your email, select your component (**Sensor Agent** or **Simulator**), and select your Target OS (**Windows** or **Linux**).
+   - Extract the `.zip` file onto the target machine.
 
-2. **Prerequisites:**
-   - Install **Python 3.9+** on your Windows machine. During installation, make sure to check the box that says **"Add Python to PATH"**.
-
-3. **Start the Command & Control (C2) Backend:**
-   - Open Command Prompt or PowerShell and navigate to the extracted `backend` folder.
-   - Create a virtual environment and start the server:
-     ```cmd
-     python -m venv venv
-     venv\Scripts\activate
+2. **Start the Command & Control (C2) Backend:**
+   - The C2 server is included in the `Agent` zip files.
+   - Open your terminal or Command Prompt and navigate to the extracted `backend` folder.
+   - Install requirements and start the server:
+     ```bash
      pip install -r requirements.txt
      uvicorn main:app --reload --host 0.0.0.0 --port 8000
      ```
 
-4. **Start the ThreatPulse Endpoint Sensor:**
-   - *Note: Administrator privileges are required for the containment script to disable network adapters and configure the Windows Firewall.*
-   - Open a **new** Command Prompt or PowerShell window **As Administrator**.
+3. **Build and Deploy the ThreatPulse Endpoint Sensor:**
    - Navigate to the extracted `agent` folder.
-     ```cmd
-     python -m venv venv
-     venv\Scripts\activate
-     pip install -r requirements.txt
-     ```
-   - **Important Safety Note on Auto-Containment:** By default, the actual network-killing commands in `agent/containment.ps1` and `agent/containment.py` are commented out so you don't accidentally knock yourself offline while testing. If you want full lockdown capabilities, open `agent/containment.py` and uncomment the `subprocess.run` line, and open `agent/containment.ps1` and uncomment the `Disable-NetAdapter` and `New-NetFirewallRule` lines.
-   - Run the sensor:
-     ```cmd
-     python sensor.py
-     ```
-   - It will create a `watch_folder` and begin monitoring it.
+   - Run the automated build script for your OS. (Note: These scripts will automatically attempt to install Python and dependencies if missing):
+     - **Windows:** Double-click `build_agent_windows.bat` or run it from command prompt.
+     - **Linux:** Run `bash build_agent_linux.sh`
+   - Once the build succeeds, a standalone executable will be generated in the `dist` folder (`ThreatPulse_Sensor.exe` or `ThreatPulse_Sensor`). 
+   - Move or copy this executable to any machine (it no longer requires Python).
+   - **Execute the compiled binary As Administrator (or root on Linux)** to start the endpoint monitoring.
 
-5. **Test the Tripwire:**
-   - Open a third Command prompt, activate the agent venv, and run the simulator inside the `agent` folder:
-     ```cmd
-     python simulator.py
-     ```
-   - The simulator will generate dummy files and simulate an attack. ThreatPulse will detect it, alert the C2, and trigger the lockdown script.
+4. **Test the Tripwire:**
+   - Extract the separate Simulator package for your OS.
+   - Run its build script (`build_simulator_windows.bat` or `build_simulator_linux.sh`) to generate the `ThreatPulse_Simulator` binary.
+   - Run the generated Simulator binary. It will generate dummy files and simulate an attack. ThreatPulse Sensor will detect it, alert the C2, and trigger your lockdown script.
 
 ---
 
